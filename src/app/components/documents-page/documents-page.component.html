@@ -1,0 +1,15 @@
+<div class="container mt-3">
+    <div class="row d-flex justify-content-between mb-3">
+        <h2>Documents</h2>
+        <div class="spacer"></div>
+        <button class="btn btn-info" *ngIf="isAuthenticated" [routerLink]="['create']"><span class="mdi mdi-plus"></span> Create</button>
+    </div>
+    <div *ngIf="isAuthenticated">
+        <ng-container *ngFor="let document of documents$ | async">
+            <app-document [document]="document"></app-document>
+        </ng-container>
+    </div>
+    <div class="row" *ngIf="!isAuthenticated">
+        <h4>You need to authenticate to see available documents.</h4>
+    </div>
+</div>

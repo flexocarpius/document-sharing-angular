@@ -1,0 +1,17 @@
+<nav class="navbar bg-info navbar-expand-lg navbar-dark pr-2 mb-0">
+    <a class="navbar-brand">Document Sharing</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" [class.active]="currentUrl?.includes('home')" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [class.active]="currentUrl?.includes('users')" [routerLink]="['users']">Users</a>
+        <a class="nav-link" [class.active]="currentUrl?.includes('documents')" [routerLink]="['documents']">Documents</a>
+      </div>
+    </div>
+    <div class="form-inline my-2 my-lg-0">
+      <a class="btn btn-info my-2 my-sm-0" *ngIf="!isAuthenticated" [routerLink]="['login']">Login</a>
+      <a class="btn btn-info my-2 my-sm-0" *ngIf="isAuthenticated" (click)="onLogoutButtonClick($event)">Logout</a>
+    </div>
+  </nav>

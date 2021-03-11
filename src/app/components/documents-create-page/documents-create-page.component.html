@@ -1,0 +1,41 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-12">
+      <h2>Create new Document</h2>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-8">
+        <form [formGroup]="documentForm">
+          <div class="form-group">
+            <label for="name">Document name</label>
+            <input class="form-control" id="name" formControlName="name">
+            <small *ngIf="name.invalid && name.touched" class="text-danger">
+              Name is required.
+            </small>
+          </div>
+          <div class="form-group">
+              <label for="description">Description</label>
+              <input class="form-control" id="description" formControlName="description">
+              <small *ngIf="description.invalid && description.touched" class="text-danger">
+                Description name is required.
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="user">User</label>
+              <select class="form-control" id="user" formControlName="user">
+                <option></option>
+                <ng-container *ngFor="let user of users$ | async">
+                  <option value="{{ user.id }}">{{ user.username }}</option>
+                </ng-container>
+              </select>
+              <small *ngIf="user.invalid && user.touched" class="text-danger">
+                User is required.
+              </small>
+            </div>
+          <button type="submit" class="btn btn-success" [disabled]="documentForm.invalid" (click)="onClick($event)">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

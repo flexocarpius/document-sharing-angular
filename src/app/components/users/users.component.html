@@ -1,0 +1,5 @@
+<div class="container d-flex flex-row flex-wrap">
+    <div class="pr-3" *ngFor="let user of users$ | async">
+        <app-user [user]="user"></app-user>
+    </div>
+</div>

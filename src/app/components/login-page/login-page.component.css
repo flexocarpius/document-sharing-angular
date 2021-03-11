@@ -1,0 +1,8 @@
+.wrapper {
+    height: calc(100vh - 70px);
+    background-color: rgb(4, 40, 65);
+}
+
+.login-container {
+    width: 500px;
+}

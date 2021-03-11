@@ -1,0 +1,26 @@
+<div class="container-fluid wrapper d-flex justify-content-center align-items-center">
+    <div class="login-container">
+        <div class="card">
+            <div class="card-body">
+                <h2>Login</h2>
+                <form [formGroup]="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" id="username" formControlName="username">
+                        <small *ngIf="username.invalid && username.touched" class="text-danger">
+                        Username is required.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" id="password" formControlName="password" type="password">
+                        <small *ngIf="password.invalid && password.touched" class="text-danger">
+                            Password is required.
+                        </small>
+                    </div>
+                    <button type="submit" class="btn btn-info" [disabled]="loginForm.invalid" (click)="onClick($event)">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

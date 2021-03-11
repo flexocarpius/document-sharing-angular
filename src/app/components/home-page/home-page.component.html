@@ -1,0 +1,59 @@
+<div class="container mt-2">
+    <div class="row">
+    </div>
+    <h3>Welcome to document sharing application!</h3>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <app-dashboard-info
+                [title]="'49/50'"
+                [subtitle]="'Used Space'"
+                [icon]="'harddisk'"
+                [variant]="'warning'"
+                [footerText]="'Get more space.'">
+            </app-dashboard-info>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <app-dashboard-info
+                [title]="(documents$ | async).length"
+                [subtitle]="'Documents'"
+                [icon]="'file-document'"
+                [variant]="'info'"
+                [footerText]="'View all'">
+            </app-dashboard-info>
+        </div>
+         <div class="col-lg-4 col-md-6 col-sm-6">
+            <app-dashboard-info
+                [title]="(users$ | async).length"
+                [subtitle]="'Users'"
+                [icon]="'account'"
+                [variant]="'success'"
+                [footerText]="'View all'">
+            </app-dashboard-info>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <x-chartist
+                        [data]="scatterChartConfig.data"
+                        [type]="scatterChartConfig.type"
+                        [options]="scatterChartConfig.options"
+                        [responsiveOptions]="scatterChartConfig.responsiveOptions">
+                    </x-chartist>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <x-chartist
+                        [data]="pieChartConfig.data"
+                        [type]="pieChartConfig.type"
+                        [options]="pieChartConfig.options">
+                    </x-chartist>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
